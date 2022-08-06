@@ -48,6 +48,13 @@ Mac系统下的QQ抢红包神器，支持群和个人红包，包括文字口令
 ### 方式1
 打开控制台窗口，执行Other目录中的`Install.sh`文件，如：`sh Install.sh`
 
+若出现 `“insert_dylib” cannot be opened because the developer cannot be verified.` 提示，则是因为 macOS 上的可执行程序都需要经过苹果授予的证书进行签名后才能正常执行，自行编译或者下载的可执行文件没有签名因此导致出现此问题，可以通过进入 Other/Tools 目录运行如下代码解决：
+```
+sudo xattr -d com.apple.quarantine insert_dylib
+```
+
+
+
 ### 方式2
 
 打开控制台窗口，执行Other目录中的`SignatureInstall.sh`文件，要以管理员权限执行：`sudo sh SignatureInstall.sh`，然后关闭控制台，再新打开一个控制台，
